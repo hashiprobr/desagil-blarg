@@ -9,12 +9,14 @@ public class Post {
 	private String title;
 	private String content;
 	private List<String> tags;
+	private List<Comment> comments;
 
 	public Post(String title, String content) {
 		this.date = new Date();
 		this.title = title;
 		this.content = content;
 		this.tags = new ArrayList<>();
+		this.comments = new ArrayList<>();
 	}
 
 	public Date getDate() {
@@ -43,5 +45,9 @@ public class Post {
 
 	public void addTag(String tag) {
 		this.tags.add(tag);
+	}
+
+	public void addComment(String author, String content) {
+		this.comments.add(new Comment(author, content));
 	}
 }
