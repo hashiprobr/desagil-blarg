@@ -35,7 +35,7 @@ public class Blog {
 
 	public void addPost(String title, String content, List<String> tags) {
 		Post post = new Post(title, content);
-		for (String tag: tags) {
+		for (String tag: this.tags) {
 			post.addTag(tag);
 			if (!this.tags.contains(tag)) {
 				this.tags.add(tag);
@@ -56,7 +56,7 @@ public class Blog {
 
 	public Map<String, List<Post>> getPostsPerTag() {
 		Map<String, List<Post>> postsPerTag = new HashMap<>();
-		for (String tag: tags) {
+		for (String tag: this.tags) {
 			postsPerTag.put(tag, getPostsWithTag(tag));
 		}
 		return postsPerTag;
